@@ -9,7 +9,7 @@ import './assets/css/style.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/cogproject-1">
       <Layout>
         <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
