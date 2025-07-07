@@ -12,7 +12,9 @@ function App() {
     <BrowserRouter basename="/cogproject-1">
       <Layout>
         <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={
+              <Dashboard />
+          } />
         {/* Add more routes here as needed */}
       </Routes>
       </Layout>
