@@ -138,3 +138,32 @@ button#profileDropdown:hover {
 .bel-sorath span {
     background: #ffc800;
 }
+
+
+
+
+/* sidebar 2 */
+
+li.btn-style2:hover, .active2 {
+    background: #d3e8fb;
+}
+
+li.btn-style2:hover a, .active2 a {
+    color: var(--secondary-hp-color) !important;
+}
+
+
+/* sidebar 3 */
+
+.third-option {
+    background: linear-gradient(45deg, var(--primary-hp-color), var(--secondary-hp-color));
+}
+.third-option .sorath-header-li a {
+    color: #ffffff;
+}
+.third-option li.btn-style2:hover,.third-option .active2 {
+    background: #ffffff;
+}
+.third-option li.btn-style2:hover a, .third-option .active3 a {
+    color: var(--secondary-hp-color) !important;
+}

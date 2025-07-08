@@ -33,20 +33,20 @@ useEffect(() => {
 
 
   return (
-    <div className={`sidebar text-white ${isOpen ? 'open' : 'collapsed'}`}>
+    <div className={`sidebar third-option text-white ${isOpen ? 'open' : 'collapsed'}`}>
       {/* Header with Logo */}
       <div className="sidebar-header d-flex align-items-center p-3 border-bottom border-secondary">
         <div className="d-flex align-items-center">
           <div className="logo-box bg-primary text-white fw-bold me-2 d-flex justify-content-center align-items-center">
             PS
           </div>
-          {isOpen && <h5 className="mb-0 text-primary">Panasonic</h5>}
+          {isOpen && <h5 className="mb-0">Panasonic</h5>}
         </div>
       </div>
 
       {/* Sidebar Links */}
       <ul className="list-unstyled mt-4 sorath-header-li">
-        <li className={`active btn-style1 px-3 ${location.pathname === '/' ? 'active' : ''}`}>
+        <li className={`btn-style2 px-3 ${location.pathname === '/dashboard' ? 'active' : ''}`}>
           <Link
             className="text-decoration-none d-flex align-items-center"
             to="/dashboard"
@@ -58,19 +58,19 @@ useEffect(() => {
             <span className="menu-text ms-3">Dashboard</span>
           </Link>
         </li>
-        <li className={`btn-style1 px-3 ${location.pathname === '/users' ? 'active' : ''}`}>
+        <li className={`btn-style2 px-3 ${location.pathname === '/dashboard2' ? 'active2' : ''}`}>
           <Link
             className="text-decoration-none d-flex align-items-center"
             to="/dashboard2"
             data-bs-toggle="tooltip"
             data-bs-placement="right"
-            title="dashboard2"
+            title="Dashboard2"
           >
             <i className="bi bi-person"></i>
             <span className="menu-text ms-3">Dashboard 2</span>
           </Link>
         </li>
-        <li className={`btn-style1 px-3 ${location.pathname === '/settings' ? 'active' : ''}`}>
+        <li className={`btn-style2 px-3 ${location.pathname === '/dashboard3' ? 'active3' : ''}`}>
           <Link
             className="text-decoration-none d-flex align-items-center"
             to="/dashboard3"
