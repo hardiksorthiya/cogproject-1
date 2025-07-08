@@ -170,3 +170,41 @@ li.btn-style2:hover a, .active2 a {
 .third-option li.active3 {
     background: #ffffff;
 }
+
+
+/* table2 */
+
+.show-page-sorath, .custom-rows-dropdown button, .colum-3-sorath button {
+    padding: 10px;
+    box-shadow: 2px 2px 10px #80808030;
+    border: none;
+}
+
+/* table 3 */
+
+.soft-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.35em 0.6em;
+  border-radius: 12px;
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.badge-success.soft-badge {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.badge-secondary.soft-badge {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+}
+
+thead.table-sorath-three th {
+    background: var(--secondary-hp-color);
+    padding: 15px .5rem;
+    font-weight: 500;
+    color: white;
+}
+
