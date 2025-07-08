@@ -164,7 +164,7 @@ li.btn-style2:hover a, .active2 a {
 .third-option li.btn-style2:hover,.third-option .active2 {
     background: #ffffff;
 }
-.third-option li.btn-style2:hover a {
+.third-option li.btn-style2:hover a, .third-option li.active3 a {
     color: var(--secondary-hp-color) !important;
 }
 .third-option li.active3 {
