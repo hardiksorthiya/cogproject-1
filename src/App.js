@@ -13,14 +13,14 @@ import './assets/css/style.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/cogproject-1">
-      
-        <Routes>
+    <BrowserRouter basename="/cogproject-1/dashboard">
+
+      <Routes>
         <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
-        <Route path="/dashboard2" element={<Layout2><Dashboard2/></Layout2>} />
-        <Route path="/dashboard3" element={<Layout3><Dashboard3/></Layout3>} />
+        <Route path="/dashboard2" element={<Layout2><Dashboard2 /></Layout2>} />
+        <Route path="/dashboard3" element={<Layout3><Dashboard3 /></Layout3>} />
       </Routes>
-      
+
     </BrowserRouter>
   );
 }
