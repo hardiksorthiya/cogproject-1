@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Filter from '../../components/Filter';
+import { FiFilter } from 'react-icons/fi';
 import {
   Container,
   Table,
@@ -76,6 +78,9 @@ const EnhancedTable = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [showFilters, setShowFilters] = useState(false);
+const handleCloseFilters = () => setShowFilters(false);
+const handleShowFilters = () => setShowFilters(true);
   const handleSort = (key) => {
     let direction = 'asc';
     if (sortConfig.key === key && sortConfig.direction === 'asc') {
@@ -146,7 +151,11 @@ const EnhancedTable = () => {
           />
         </Col>
         <Col md={6} className="d-flex justify-content-end">
-          <DropdownButton variant="outline-secondary" title="Columns" size="sm" className='colum-3-sorath' >
+
+        <Button variant="outline-primary" size="sm" onClick={handleShowFilters} className='filter-sorath-btn'>
+ <FiFilter className="filter-sorath" />
+</Button>
+          <DropdownButton variant="outline-secondary" title="Columns" size="sm" className='colum-3-sorath ms-3' >
             {Object.keys(visibleColumns).map((col) => (
               <Form.Check
                 key={col}
@@ -290,6 +299,7 @@ const EnhancedTable = () => {
         </Col>
       </Row>
       </Card>
+      <Filter show={showFilters} handleClose={handleCloseFilters} />
     </Container>
   );
 };
