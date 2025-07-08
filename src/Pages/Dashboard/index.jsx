@@ -147,7 +147,7 @@ const ReportsTable = () => {
           <Form.Select size="sm" value={itemsPerPage} onChange={handlePageSizeChange}>
             {[5, 10, 15, 20].map(num => (
               <option key={num} value={num}>
-                Show {num}
+                {num} per page
               </option>
             ))}
           </Form.Select>
