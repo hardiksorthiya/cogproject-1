@@ -324,7 +324,7 @@ const EnhancedTable = () => {
                   value={searchC}
                   onChange={(e) => setSearchC(e.target.value)}
                   placeholder="Search by status"
-                  className="show-page-sorath"
+                  className="show-page-sorath" 
                 />
                 <div className="mt-2 d-flex gap-2">
                   {["All", "Exact", "Partial"].map((opt) => (
