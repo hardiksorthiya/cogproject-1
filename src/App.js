@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import React from 'react';
 import Dashboard from './Pages/Dashboard/index';
 import Dashboard2 from './Pages/Dashboard/index2';
@@ -13,15 +13,11 @@ import './assets/css/style.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/cogproject-1">
-
-      <Routes>
+          <Routes>
         <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
         <Route path="/dashboard2" element={<Layout2><Dashboard2 /></Layout2>} />
         <Route path="/dashboard3" element={<Layout3><Dashboard3 /></Layout3>} />
       </Routes>
-
-    </BrowserRouter>
   );
 }
 
