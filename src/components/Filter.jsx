@@ -37,9 +37,24 @@ const Filter = ({ show, handleClose }) => {
     );
   };
   // Witness Alignment
-  const [selectedAlignment, setSelectedAlignment] = useState("Left");
+  const [selectedAlignments, setSelectedAlignments] = useState([]);
+const handleAlignmentChange = (alignment) => {
+  setSelectedAlignments((prevSelected) =>
+    prevSelected.includes(alignment)
+      ? prevSelected.filter((item) => item !== alignment)
+      : [...prevSelected, alignment]
+  );
+};
+
   // Witness Type
-  const [selectedWitnessType, setSelectedWitnessType] = useState("Eyewitness"); // default selection
+  const [selectedWitnessTypes, setSelectedWitnessTypes] = useState([]);
+const handleWitnessTypeChange = (type) => {
+  setSelectedWitnessTypes((prevSelected) =>
+    prevSelected.includes(type)
+      ? prevSelected.filter((item) => item !== type)
+      : [...prevSelected, type]
+  );
+};
 
 
   return (
@@ -130,50 +145,39 @@ const Filter = ({ show, handleClose }) => {
           </Form.Group>
 
           {/* Witness Alignment */}
-          <Form.Group className="mb-4">
-            <Form.Label className="fw-semibold">Witness Alignment</Form.Label>
-            <div className="d-flex gap-3 ps-1">
-              {["Left", "Center", "Right"].map((alignment, idx) => (
-                <Form.Check
-                  key={alignment}
-                  type="radio"
-                  name="witnessAlignment"
-                  label={alignment}
-                  value={alignment}
-                  checked={selectedAlignment === alignment}
-                  onChange={(e) => setSelectedAlignment(e.target.value)}
-                />
-              ))}
-            </div>
-          </Form.Group>
-          
-
-          {/* Witness Type */}
 <Form.Group className="mb-4">
-  <Form.Label className="fw-semibold">Witness Type</Form.Label>
+  <Form.Label className="fw-semibold">Witness Alignment</Form.Label>
   <div className="d-flex flex-wrap gap-3 ps-1">
-    {["Eyewitness", "Expert", "Anonymous"].map((type, idx) => (
+    {["Left", "Center", "Right"].map((alignment) => (
       <Form.Check
-        key={type}
-        type="radio"
-        name="witnessType"
-        label={type}
-        value={type}
-        checked={selectedWitnessType === type}
-        onChange={(e) => setSelectedWitnessType(e.target.value)}
+        key={alignment}
+        type="checkbox"
+        label={alignment}
+        value={alignment}
+        checked={selectedAlignments.includes(alignment)}
+        onChange={() => handleAlignmentChange(alignment)}
       />
     ))}
   </div>
 </Form.Group>
 
+          {/* Witness Type */}
+<Form.Group className="mb-4">
+  <Form.Label className="fw-semibold">Witness Type</Form.Label>
+  <div className="d-flex flex-wrap gap-3 ps-1">
+    {["Eyewitness", "Expert", "Anonymous"].map((type) => (
+      <Form.Check
+        key={type}
+        type="checkbox"
+        label={type}
+        value={type}
+        checked={selectedWitnessTypes.includes(type)}
+        onChange={() => handleWitnessTypeChange(type)}
+      />
+    ))}
+  </div>
+</Form.Group>
 
-          {/* Search Bars */}
-          <div className="mb-4">
-            <Form.Label className="fw-semibold">Search Inputs</Form.Label>
-            <Form.Control className="mb-2 rounded-2" placeholder="Search A" />
-            <Form.Control className="mb-2 rounded-2" placeholder="Search B" />
-            <Form.Control className="rounded-2" placeholder="Search C" />
-          </div>
 
           {/* Testimony Count Box */}
           <div className="bg-primary text-white text-center py-3 px-2 rounded-3">
