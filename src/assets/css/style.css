@@ -242,3 +242,7 @@ button.filter-sorath-btn.btn.btn-outline-primary.btn-sm {
 .form-check {
   padding-left: 0;
 }
+
+.collapsing, .collapse.show {
+  transition: height 0.35s ease-in-out;
+}
