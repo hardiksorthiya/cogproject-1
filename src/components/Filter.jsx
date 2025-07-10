@@ -1,25 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Offcanvas, Form, Dropdown, Button } from "react-bootstrap";
 import { Sliders } from "react-bootstrap-icons";
 
 const Filter = ({ show, handleClose }) => {
-  // State to manage selected transcripts
   const transcriptOptions = [
     "Transcript A",
     "Transcript B",
     "Transcript C",
     "Transcript D",
     "Transcript E",
+    "Transcript F",
+    "Transcript G",
   ];
-  const [selectedTranscripts, setSelectedTranscripts] = useState([]);
 
-  const handleTranscriptCheck = (option) => {
-    setSelectedTranscripts((prevSelected) =>
-      prevSelected.includes(option)
-        ? prevSelected.filter((item) => item !== option)
-        : [...prevSelected, option]
+  const [selectedTranscripts, setSelectedTranscripts] = useState([]);
+  const [isOpen, setIsOpen] = useState(true);
+  const [contentHeight, setContentHeight] = useState(0);
+  const contentRef = useRef(null);
+
+  const isAllSelected = selectedTranscripts.length === transcriptOptions.length;
+
+  const handleSelectAll = () => {
+    setSelectedTranscripts(
+      isAllSelected ? [] : [...transcriptOptions]
     );
   };
+
+  const handleRowClick = (option) => {
+    setSelectedTranscripts((prev) =>
+      prev.includes(option)
+        ? prev.filter((item) => item !== option)
+        : [...prev, option]
+    );
+  };
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  }, [isOpen, selectedTranscripts]);
+
   // Witness
   const witnessOptions = [
     "Witness X",
@@ -65,44 +85,94 @@ const Filter = ({ show, handleClose }) => {
       </Offcanvas.Header>
       <Offcanvas.Body className="bg-light">
         <div className="bg-white p-3 rounded-3 shadow-sm">
-          {/* Transcript Filter */}
+          {/* Transcript Filter with tablkel */}
           <Form.Group className="mb-3">
-            <Form.Label className="fw-semibold">Transcript</Form.Label>
-            <Dropdown className="w-100 colum-3-sorath">
-              <Dropdown.Toggle
-                variant="light"
-                className="w-100 text-start border rounded-2 filter-drp-sorath"
-              >
-                {selectedTranscripts.length > 0 ? (
-                  <div className="d-flex flex-wrap gap-1">
-                    {selectedTranscripts.map((item, idx) => (
-                      <span key={idx} className="badge bg-primary">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  "Select transcript(s)"
-                )}
-              </Dropdown.Toggle>
+      <Form.Label className="fw-semibold">Transcript</Form.Label>
 
-              <Dropdown.Menu
-                className="w-100 border rounded-2 shadow"
-                style={{ maxHeight: "200px", overflowY: "auto" }}
-              >
+      {/* Header Toggle */}
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-100 border rounded-2 p-2 d-flex justify-content-between align-items-center sorath-table-header-filter"
+        style={{ cursor: "pointer" }}
+      >
+        <div className="d-flex flex-wrap gap-2">
+          {selectedTranscripts.length > 0 ? (
+            selectedTranscripts.map((item, idx) => (
+              <span key={idx} className="badge bg-primary rounded px-3 py-1">
+                {item}
+              </span>
+            ))
+          ) : (
+            <span className="text-white">Select transcript(s)</span>
+          )}
+        </div>
+        <span className="ms-auto">
+          {isOpen ? (
+            <i className="bi bi-chevron-up"></i>
+          ) : (
+            <i className="bi bi-chevron-down"></i>
+          )}
+        </span>
+      </div>
+
+      {/* Expandable Section */}
+      <div
+        className="overflow-hidden transition-height"
+        style={{
+          height: isOpen ? contentHeight : 0,
+          transition: "height 0.4s ease",
+        }}
+      >
+        <div ref={contentRef} className="sorath-table-filter-box">
+          {/* Transcript Table */}
+          <div
+            className="sorath-table-boday-filter"
+            style={{ maxHeight: "180px", overflowY: "auto" }}
+          >
+            <table className="table table-sm table-hover mb-0">
+              <thead>
+                <tr>
+                  <th style={{ width: "40px" }} className="bg-transparent">
+                    <Form.Check
+                      type="checkbox"
+                      checked={isAllSelected}
+                      onChange={handleSelectAll}
+                      className="m-0 square-checkbox"
+                    />
+                  </th>
+                  <th className="bg-transparent">Transcript Name</th>
+                </tr>
+              </thead>
+              <tbody>
                 {transcriptOptions.map((option, idx) => (
-                  <Form.Check
+                  <tr
                     key={idx}
-                    type="checkbox"
-                    label={option}
-                    className="px-3 py-1"
-                    checked={selectedTranscripts.includes(option)}
-                    onChange={() => handleTranscriptCheck(option)}
-                  />
+                    onClick={() => handleRowClick(option)}
+                    style={{
+                      backgroundColor: selectedTranscripts.includes(option)
+                        ? "#e7f1ff"
+                        : "transparent",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <td>
+                      <Form.Check
+                        type="checkbox"
+                        checked={selectedTranscripts.includes(option)}
+                        onChange={() => handleRowClick(option)}
+                        className="m-0 square-checkbox"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </td>
+                    <td>{option}</td>
+                  </tr>
                 ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Form.Group>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </Form.Group>
 
           {/* Witness Filter */}
           <Form.Group className="mb-4">
@@ -196,6 +266,6 @@ const Filter = ({ show, handleClose }) => {
       </Offcanvas.Body>
     </Offcanvas>
   );
-};
+}
 
 export default Filter;

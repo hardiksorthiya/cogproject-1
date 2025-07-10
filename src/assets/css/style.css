@@ -246,3 +246,27 @@ button.filter-sorath-btn.btn.btn-outline-primary.btn-sm {
 .collapsing, .collapse.show {
   transition: height 0.35s ease-in-out;
 }
+
+.transition-height {
+  transition: height 0.4s ease;
+}
+
+.sorath-table-header-filter {
+    background: linear-gradient(45deg, var(--primary-hp-color), var(--secondary-hp-color));
+    border-radius: 0 !IMPORTANT;
+    padding: 14px !important;
+    color: white;
+    transition: 1s ease;
+}
+.sorath-table-header-filter:hover {
+    background: linear-gradient(45deg, var(--secondary-hp-color), var(--primary-hp-color));
+    transition: 1s ease;
+}
+.sorath-table-filter-box {
+    border: 1px solid #80808038;
+    background: white;
+}
+.sorath-table-boday-filter thead
+ {
+    background: #1198ef33;
+}
