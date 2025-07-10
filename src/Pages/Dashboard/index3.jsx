@@ -209,30 +209,21 @@ const EnhancedTable = () => {
   return (
     <Container fluid className="py-4 px-3">
       <Card className="p-4 show-page-sorath">
-        <h2 className="mb-4">Table</h2>
+        
 
         {/* Top bar */}
         <Row className="mb-3">
           <Col md={6}>
-            <Form.Control
-              type="text"
-              placeholder="Search customer or phone..."
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="show-page-sorath"
-            />
+            <h2>Table</h2>
           </Col>
           <Col md={6} className="d-flex justify-content-end">
             <Button
               variant="outline-primary"
               size="sm"
               onClick={() => setShowSearchSection((prev) => !prev)}
-              className="filter-sorath-btn"
+              className="filter-sorath-btn text-hp-color"
             >
-              <FiSearch className="filter-sorath" />
+              Search <FiSearch className="ms-2 filter-sorath" />
             </Button>
 
             <Button
@@ -241,26 +232,14 @@ const EnhancedTable = () => {
               onClick={handleShowFilters}
               className="filter-sorath-btn ms-3"
             >
-              <FiFilter className="filter-sorath" />
+              {/* Testimony Count */}
+          <span className="text-center px-2 ">
+            <p className="mb-0 text-hp-color">Testimony Count : <span>37</span></p>
+          </span>
+              <FiFilter className="ms-2 filter-sorath" />
             </Button>
 
-            <DropdownButton
-              variant="outline-secondary"
-              title="Columns"
-              size="sm"
-              className="colum-3-sorath ms-3"
-            >
-              {Object.keys(visibleColumns).map((col) => (
-                <Form.Check
-                  key={col}
-                  type="checkbox"
-                  className="px-3"
-                  label={col.toUpperCase()}
-                  checked={visibleColumns[col]}
-                  onChange={() => toggleColumn(col)}
-                />
-              ))}
-            </DropdownButton>
+           
           </Col>
         </Row>
 

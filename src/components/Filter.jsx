@@ -15,15 +15,13 @@ const Filter = ({ show, handleClose }) => {
 
   const [selectedTranscripts, setSelectedTranscripts] = useState([]);
   const [isOpen, setIsOpen] = useState(true);
-  const [contentHeight, setContentHeight] = useState(0);
+  const [contentHeight, setContentHeight] = useState("auto");
   const contentRef = useRef(null);
 
   const isAllSelected = selectedTranscripts.length === transcriptOptions.length;
 
   const handleSelectAll = () => {
-    setSelectedTranscripts(
-      isAllSelected ? [] : [...transcriptOptions]
-    );
+    setSelectedTranscripts(isAllSelected ? [] : [...transcriptOptions]);
   };
 
   const handleRowClick = (option) => {
@@ -35,7 +33,7 @@ const Filter = ({ show, handleClose }) => {
   };
 
   useEffect(() => {
-    if (contentRef.current) {
+    if (contentRef.current && isOpen) {
       setContentHeight(contentRef.current.scrollHeight);
     }
   }, [isOpen, selectedTranscripts]);
@@ -56,7 +54,8 @@ const Filter = ({ show, handleClose }) => {
         : [...prev, option]
     );
   };
-  // Witness Alignment
+
+  // Alignment
   const [selectedAlignments, setSelectedAlignments] = useState([]);
   const handleAlignmentChange = (alignment) => {
     setSelectedAlignments((prevSelected) =>
@@ -66,7 +65,7 @@ const Filter = ({ show, handleClose }) => {
     );
   };
 
-  // Witness Type
+  // Type
   const [selectedWitnessTypes, setSelectedWitnessTypes] = useState([]);
   const handleWitnessTypeChange = (type) => {
     setSelectedWitnessTypes((prevSelected) =>
@@ -85,94 +84,99 @@ const Filter = ({ show, handleClose }) => {
       </Offcanvas.Header>
       <Offcanvas.Body className="bg-light">
         <div className="bg-white p-3 rounded-3 shadow-sm">
-          {/* Transcript Filter with tablkel */}
+          {/* Transcript Filter */}
           <Form.Group className="mb-3">
-      <Form.Label className="fw-semibold">Transcript</Form.Label>
+            <Form.Label className="fw-semibold">Transcript</Form.Label>
 
-      {/* Header Toggle */}
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-100 border rounded-2 p-2 d-flex justify-content-between align-items-center sorath-table-header-filter"
-        style={{ cursor: "pointer" }}
-      >
-        <div className="d-flex flex-wrap gap-2">
-          {selectedTranscripts.length > 0 ? (
-            selectedTranscripts.map((item, idx) => (
-              <span key={idx} className="badge bg-primary rounded px-3 py-1">
-                {item}
+            <div
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-100 border rounded-2 p-2 d-flex justify-content-between align-items-center sorath-table-header-filter"
+              style={{ cursor: "pointer" }}
+            >
+              <div className="d-flex flex-wrap gap-2">
+                {selectedTranscripts.length > 0 ? (
+                  selectedTranscripts.map((item, idx) => (
+                    <span
+                      key={idx}
+                      className="badge bg-primary rounded px-3 py-1"
+                    >
+                      {item}
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-white">Select transcript(s)</span>
+                )}
+              </div>
+              <span className="ms-auto">
+                {isOpen ? (
+                  <i className="bi bi-chevron-up"></i>
+                ) : (
+                  <i className="bi bi-chevron-down"></i>
+                )}
               </span>
-            ))
-          ) : (
-            <span className="text-white">Select transcript(s)</span>
-          )}
-        </div>
-        <span className="ms-auto">
-          {isOpen ? (
-            <i className="bi bi-chevron-up"></i>
-          ) : (
-            <i className="bi bi-chevron-down"></i>
-          )}
-        </span>
-      </div>
+            </div>
 
-      {/* Expandable Section */}
-      <div
-        className="overflow-hidden transition-height"
-        style={{
-          height: isOpen ? contentHeight : 0,
-          transition: "height 0.4s ease",
-        }}
-      >
-        <div ref={contentRef} className="sorath-table-filter-box">
-          {/* Transcript Table */}
-          <div
-            className="sorath-table-boday-filter"
-            style={{ maxHeight: "180px", overflowY: "auto" }}
-          >
-            <table className="table table-sm table-hover mb-0">
-              <thead>
-                <tr>
-                  <th style={{ width: "40px" }} className="bg-transparent">
-                    <Form.Check
-                      type="checkbox"
-                      checked={isAllSelected}
-                      onChange={handleSelectAll}
-                      className="m-0 square-checkbox"
-                    />
-                  </th>
-                  <th className="bg-transparent">Transcript Name</th>
-                </tr>
-              </thead>
-              <tbody>
-                {transcriptOptions.map((option, idx) => (
-                  <tr
-                    key={idx}
-                    onClick={() => handleRowClick(option)}
-                    style={{
-                      backgroundColor: selectedTranscripts.includes(option)
-                        ? "#e7f1ff"
-                        : "transparent",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <td>
-                      <Form.Check
-                        type="checkbox"
-                        checked={selectedTranscripts.includes(option)}
-                        onChange={() => handleRowClick(option)}
-                        className="m-0 square-checkbox"
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                    </td>
-                    <td>{option}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </Form.Group>
+            {/* Expandable Section */}
+            <div
+              className="overflow-hidden transition-height"
+              style={{
+                height: isOpen ? contentHeight : 0,
+                transition: "height 0.4s ease",
+              }}
+            >
+              <div ref={contentRef} className="sorath-table-filter-box">
+                <div
+                  className="sorath-table-boday-filter"
+                  style={{ maxHeight: "180px", overflowY: "auto" }}
+                >
+                  <table className="table table-sm table-hover mb-0">
+                    <thead>
+                      <tr>
+                        <th style={{ width: "40px" }} className="bg-transparent">
+                          <Form.Check
+                            type="checkbox"
+                            checked={isAllSelected}
+                            onChange={handleSelectAll}
+                            className="m-0 square-checkbox"
+                          />
+                        </th>
+                        <th className="bg-transparent sorath-lebal-trans">
+                          Transcript Name
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {transcriptOptions.map((option, idx) => (
+                        <tr
+                          key={idx}
+                          onClick={() => handleRowClick(option)}
+                          style={{
+                            backgroundColor: selectedTranscripts.includes(option)
+                              ? "#e7f1ff"
+                              : "transparent",
+                            cursor: "pointer",
+                            height: "48px", // Increased row height
+                            verticalAlign: "middle",
+                          }}
+                        >
+                          <td className="bg-transparent">
+                            <Form.Check
+                              type="checkbox"
+                              checked={selectedTranscripts.includes(option)}
+                              onChange={() => handleRowClick(option)}
+                              className="m-0 square-checkbox"
+                              onClick={(e) => e.stopPropagation()}
+                            />
+                          </td>
+                          <td className="bg-transparent">{option}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </Form.Group>
 
           {/* Witness Filter */}
           <Form.Group className="mb-4">
@@ -247,13 +251,9 @@ const Filter = ({ show, handleClose }) => {
             </div>
           </Form.Group>
 
-          {/* Testimony Count Box */}
-          <div className="bg-primary text-white text-center py-3 px-2 rounded-3">
-            <h6 className="mb-1">Testimony Count</h6>
-            <h2 className="fw-bold mb-0">37</h2>
-          </div>
+          
 
-          {/* Apply & Reset */}
+          {/* Apply & Close */}
           <div className="d-flex justify-content-between mt-4">
             <Button variant="secondary" onClick={handleClose}>
               Close
@@ -266,6 +266,6 @@ const Filter = ({ show, handleClose }) => {
       </Offcanvas.Body>
     </Offcanvas>
   );
-}
+};
 
 export default Filter;
