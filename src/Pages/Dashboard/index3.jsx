@@ -208,13 +208,13 @@ const EnhancedTable = () => {
 
   return (
     <Container fluid className="py-4 px-3">
-      <Card className="p-4 show-page-sorath">
+      <Card className="show-page-sorath">
         
 
         {/* Top bar */}
         <Row className="mb-3">
           <Col md={6}>
-            <h2>Table</h2>
+            <h2 className="mb-0">Table</h2>
           </Col>
           <Col md={6} className="d-flex justify-content-end">
             <Button
@@ -334,7 +334,7 @@ const EnhancedTable = () => {
           </Collapse>
 
         {/* Table */}
-        <Table responsive bordered className="align-middle text-nowrap rounded-3">
+        <Table responsive className="align-middle text-nowrap rounded-3">
           <thead className="table-sorath-three">
             <tr>
               {visibleColumns.name && (
@@ -389,8 +389,7 @@ const EnhancedTable = () => {
                         alt={row.name}
                       />
                       <div>
-                        <strong>{row.name}</strong>
-                        <br />
+                        <p className="mb-0">{row.name}</p>
                         <small className="text-muted">{row.phone}</small>
                       </div>
                     </div>
@@ -407,9 +406,15 @@ const EnhancedTable = () => {
                 {visibleColumns.actions && (
                   <td>
                     <div className="d-flex gap-2">
-                      <Button variant="outline-primary" size="sm">View</Button>
-                      <Button variant="outline-success" size="sm">Edit</Button>
-                      <Button variant="outline-danger" size="sm">Delete</Button>
+                      <Button variant="outline-primary" size="sm">
+                        <i className="bi bi-eye"></i>
+                      </Button>
+                      <Button variant="outline-success" size="sm">
+                        <i className="bi bi-pencil"></i>
+                      </Button>
+                      <Button variant="outline-danger" size="sm">
+                        <i className="bi bi-trash"></i>
+                      </Button>
                     </div>
                   </td>
                 )}
@@ -419,15 +424,13 @@ const EnhancedTable = () => {
         </Table>
 
         {/* Pagination */}
-        <Row className="px-1 py-3 align-items-center">
-          <Col>
-            <span className="text-muted small">
+        <Row className="px-1 ">
+          <Col className="d-flex">
+          {/* <span className="text-muted small">
               {paginatedData.length > 0
                 ? `${(currentPage - 1) * rowsPerPage + 1}–${(currentPage - 1) * rowsPerPage + paginatedData.length}`
                 : "0"} of {filteredData.length}
-            </span>
-          </Col>
-          <Col className="text-center">
+            </span> */}
             <DropdownButton
               title={`Rows per page: ${rowsPerPage}`}
               variant="outline-secondary"
@@ -449,7 +452,7 @@ const EnhancedTable = () => {
             </DropdownButton>
           </Col>
           <Col className="text-end">
-            <div className="d-inline-flex gap-2">
+            <div className="d-inline-flex gap-2 align-items-center">
               <Button
                 variant="outline-secondary"
                 size="sm"

@@ -175,9 +175,13 @@ li.btn-style2:hover a, .active2 a {
 
 /* table2 */
 
-.show-page-sorath, .custom-rows-dropdown button, .colum-3-sorath button {
+.custom-rows-dropdown button, .colum-3-sorath button {
     padding: 10px;
     box-shadow: 2px 2px 10px #80808030;
+    border: none !important;
+}
+
+.show-page-sorath {
     border: none !important;
 }
 .colum-3-sorath button {
@@ -209,7 +213,7 @@ li.btn-style2:hover a, .active2 a {
 
 thead.table-sorath-three th {
     background: var(--secondary-hp-color);
-    padding: 15px .5rem;
+    padding: .5rem;
     font-weight: 500;
     color: white;
 }
