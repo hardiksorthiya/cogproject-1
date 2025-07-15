@@ -3,9 +3,11 @@ import React from 'react';
 import Dashboard from './Pages/Dashboard/index';
 import Dashboard2 from './Pages/Dashboard/index2';
 import Dashboard3 from './Pages/Dashboard/index3';
+import Dashboard4 from './Pages/Dashboard/Dashboard';
 import Layout from './components/Layout';
 import Layout2 from './components/Layout2';
 import Layout3 from './components/Layout3';
+import Layout4 from './components/Layout4';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -18,6 +20,7 @@ function App() {
         <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
         <Route path="/dashboard2" element={<Layout2><Dashboard2 /></Layout2>} />
         <Route path="/dashboard3" element={<Layout3><Dashboard3 /></Layout3>} />
+        <Route path="/dashboard4" element={<Layout4><Dashboard4 /></Layout4>} />
       </Routes>
     </BrowserRouter>
   );

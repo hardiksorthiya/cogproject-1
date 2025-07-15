@@ -292,3 +292,95 @@ button.filter-sorath-btn:hover svg, button.filter-sorath-btn:hover .text-hp-colo
 .text-hp-color{
     color: var(--text-light-hp-color);
 }
+
+
+
+
+
+
+
+
+
+
+/* dashboard-4, slidebar-4 */
+
+.sidebar-4{
+    box-shadow: none !important;
+}
+.sidebar-4 .sorath-header-li a {
+    font-size: 14px;
+}
+.sidebar-4 .sorath-header-li li{
+    margin: 0 0 5px 0 !important;
+}
+.sidebar-4 li.btn-style4:hover a, .sidebar-4 li.btn-style4.active a {
+    background: var(--secondary-hp-color);
+    border-radius: 10px;
+    transition: 1s ease;
+}
+.sidebar-4 li.active {
+    background: transparent !important;;
+    border-radius: none !important;;
+    box-shadow:none !important;
+}
+.sidebar-4 li.active a {
+    color: #fff !important;
+    font-weight: 400;
+}
+.sidebar-4 li.active i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 8px;
+}
+.sidebar-4 li i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 8px;
+    color: var(--secondary-hp-color);
+
+}
+li.btn-style4.active a i {
+    color: var(--secondary-hp-color);
+}
+.sidebar-4, div#layout-4 {
+    background: linear-gradient(0deg, #1171ef30, #85858512);
+}
+.sidebar-4{
+    background: transparent;
+        position: relative;
+}
+.logo-name{
+    color: var(--secondary-hp-color);
+}
+.search-bar.input-group {
+    max-width: 420px;
+    border: none;
+    background: white;
+    border-radius: 50px;
+    /* box-shadow: 2px 2px 10px #80808012, -2px -2px 10px #80808012; */
+}
+.search-bar span.input-group-text {
+    border: none;
+    background: transparent;
+    color: var(--text-light-hp-color);
+}
+.search-bar input.form-control {
+    background: transparent;
+    border: none;
+}
+.icon-header {
+    background: white;
+    padding: 8px;
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    fill: var(--text-light-hp-color);
+}
