@@ -46,52 +46,65 @@ useEffect(() => {
 
       {/* Sidebar Links */}
       <ul className="list-unstyled sorath-header-li">
-        <li className={`btn-style4 px-3 ${location.pathname === '/dashboard' ? 'active' : ''}`}>
+        <li className={`btn-style4 px-3 ${location.pathname === '/table1' ? 'active' : ''}`}>
           <Link
             className="text-decoration-none d-flex align-items-center"
-            to="/dashboard"
+            to="/table1"
             data-bs-toggle="tooltip"
             data-bs-placement="right"
             title="Dashboard"
           >
             <i className="bi bi-house"></i>
-            <span className="menu-text ms-3">Dashboard</span>
+            <span className="menu-text ms-3">Table1</span>
           </Link>
         </li>
-        <li className={`btn-style4 px-3 ${location.pathname === '/dashboard2' ? 'active2' : ''}`}>
+        <li className={`btn-style4 px-3 ${location.pathname === '/table2' ? 'active2' : ''}`}>
           <Link
             className="text-decoration-none d-flex align-items-center"
-            to="/dashboard2"
+            to="/table2"
             data-bs-toggle="tooltip"
             data-bs-placement="right"
             title="Dashboard2"
           >
             <i className="bi bi-person"></i>
+            <span className="menu-text ms-3">Table 2</span>
+          </Link>
+        </li>
+        <li className={`btn-style4 px-3 ${location.pathname === '/table3' ? 'active3' : ''}`}>
+          <Link
+            className="text-decoration-none d-flex align-items-center"
+            to="/table3"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Settings"
+          >
+            <i className="bi bi-gear"></i>
+            <span className="menu-text ms-3">Table 3</span>
+          </Link>
+        </li>
+        <li className={`btn-style4 px-3 ${location.pathname === '/dashboard1' ? 'active' : ''}`}>
+          <Link
+            className="text-decoration-none d-flex align-items-center"
+            to="/dashboard1"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Settings"
+          >
+            <i className="bi bi-gear"></i>
+            <span className="menu-text ms-3">Dashboard 1</span>
+          </Link>
+        </li>
+
+        <li className={`btn-style4 px-3 ${location.pathname === '/dashboard2' ? 'active' : ''}`}>
+          <Link
+            className="text-decoration-none d-flex align-items-center"
+            to="/dashboard2"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Settings"
+          >
+            <i className="bi bi-gear"></i>
             <span className="menu-text ms-3">Dashboard 2</span>
-          </Link>
-        </li>
-        <li className={`btn-style4 px-3 ${location.pathname === '/dashboard3' ? 'active3' : ''}`}>
-          <Link
-            className="text-decoration-none d-flex align-items-center"
-            to="/dashboard3"
-            data-bs-toggle="tooltip"
-            data-bs-placement="right"
-            title="Settings"
-          >
-            <i className="bi bi-gear"></i>
-            <span className="menu-text ms-3">Dashboard 3</span>
-          </Link>
-        </li>
-        <li className={`btn-style4 px-3 ${location.pathname === '/dashboard4' ? 'active' : ''}`}>
-          <Link
-            className="text-decoration-none d-flex align-items-center"
-            to="/dashboard4"
-            data-bs-toggle="tooltip"
-            data-bs-placement="right"
-            title="Settings"
-          >
-            <i className="bi bi-gear"></i>
-            <span className="menu-text ms-3">Dashboard 4</span>
           </Link>
         </li>
       </ul>
