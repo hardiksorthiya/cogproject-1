@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       <div
         className="flex-grow-1"
         style={{
-          marginLeft: isOpen ? 0 : 80, // 60 when collapsed
+          marginLeft: isOpen ? 250 : 80, // 60 when collapsed
           transition: 'margin-left 0.3s ease',
         }}
       >
