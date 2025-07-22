@@ -5,6 +5,7 @@ import Table2 from './Pages/Dashboard/index2';
 import Table3 from './Pages/Dashboard/index3';
 import Dashboard1 from './Pages/Dashboard/Dashboard';
 import Dashboard2 from './Pages/Dashboard/Dashboard2';
+import Login from './Pages/Dashboard/login';
 import Layout from './components/Layout';
 import Layout2 from './components/Layout2';
 import Layout3 from './components/Layout3';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/table3" element={<Layout3><Table3 /></Layout3>} />
         <Route path="/dashboard1" element={<Layout4><Dashboard1 /></Layout4>} />
         <Route path="/dashboard2" element={<Layout5><Dashboard2 /></Layout5>} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

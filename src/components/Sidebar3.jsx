@@ -107,6 +107,20 @@ useEffect(() => {
             <span className="menu-text ms-3">Dashboard 2</span>
           </Link>
         </li>
+
+
+        <li className={`btn-style1 px-3 ${location.pathname === '/login' ? 'active' : ''}`}>
+                  <Link
+                    className="text-decoration-none d-flex align-items-center"
+                    to="/login"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="right"
+                    title="Settings"
+                  >
+                    <i className="bi bi-gear"></i>
+                    <span className="menu-text ms-3">Login</span>
+                  </Link>
+                </li>
       </ul>
 
       
