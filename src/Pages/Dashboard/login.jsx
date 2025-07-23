@@ -5,14 +5,13 @@ import { FaGoogle, FaFacebookF, FaApple, FaEnvelope, FaLock } from 'react-icons/
 const LoginPage = () => {
   return (
     <div className="login-bg d-flex justify-content-center align-items-center vh-100 position-relative">
+      <div className="login-card shadow rounded-4 d-flex position-relative">
         <div className='design-dot-1'></div>
-      <div className="login-card shadow rounded-4 d-flex overflow-hidden">
+
         {/* Left Image Section */}
-        <div className="login-left text-white d-flex flex-column justify-content-center align-items-center p-4">
+        <div className="login-left d-lg-flex d-none flex-column justify-content-center align-items-center p-4">
+
           <h1 className="login-title mb-2">Panasonic</h1>
-          <p className="login-subtitle text-center">
-            Travel is the only purchase that enriches you in ways beyond material wealth
-          </p>
         </div>
 
         {/* Right Form Section */}
@@ -48,12 +47,13 @@ const LoginPage = () => {
             <button className="btn btn-outline-secondary w-100"><FaApple /></button>
           </div>
 
-          <div className="text-center">
-            <span className="text-muted">Don't have an account?</span> <a href="#">Register Now</a>
+          <div className="register-text text-center">
+            <p className='mb-0'>Don't have an account? <a href="#">Register Now</a></p>
           </div>
         </div>
-      </div>
         <div className='design-dot-2'></div>
+      </div>
+        
     </div>
   );
 };
