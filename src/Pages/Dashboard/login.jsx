@@ -9,13 +9,18 @@ const LoginPage = () => {
         <div className='design-dot-1'></div>
 
         {/* Left Image Section */}
-        <div className="login-left d-lg-flex d-none flex-column justify-content-center align-items-center p-4">
+        <div className="login-left d-md-flex d-none flex-column justify-content-center align-items-center p-4">
 
-          <h1 className="login-title mb-2">Panasonic</h1>
+          <h1 className="login-title mb-2">
+            <img src="https://media.legaltechnologyhub.com/CC_FC_logo_0522_01_0a716b0871.png" alt="Cloud court" className='img-fluid'/>
+          </h1>
         </div>
 
         {/* Right Form Section */}
         <div className="login-right bg-white p-4 d-flex flex-column justify-content-center" style={{ minWidth: '320px' }}>
+          <h1 className="login-title d-md-none mb-2">
+            <img src="https://media.legaltechnologyhub.com/CC_FC_logo_0522_01_0a716b0871.png" alt="Cloud court" className='img-fluid'/>
+          </h1>
           <h2 className="login-title-right text-center mb-0">Welcome</h2>
           <small className="login-subtitle-right text-center">Login with Email</small>
 
